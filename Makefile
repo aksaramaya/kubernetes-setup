@@ -24,3 +24,11 @@ slave:
 	bash $(BUILD_DIRS)/slave.sh
 
 clean:
+	rm /etc/yum.repos.d/virt7-docker-common-release.repo
+	rm /etc/hosts
+	mv /etc/hosts.backup /etc/hosts
+	rm /etc/kubernetes/config
+	rm /etc/etcd/etcd.conf
+	rm /etc/kubernetes/apiserver
+	rm /etc/kubernetes/kubelet
+	yum remove -y kubernetes etcd
