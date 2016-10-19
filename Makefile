@@ -15,12 +15,12 @@ bootstrap:
 	systemctl stop firewalld
 
 master:
-	cat $(BUILD_DIRS)/etcd.conf /etc/etcd/etcd.conf
-	cat $(BUILD_DIRS)/apiserver /etc/kubernetes/apiserver
+	cat $(BUILD_DIRS)/etcd.conf > /etc/etcd/etcd.conf
+	cat $(BUILD_DIRS)/apiserver > /etc/kubernetes/apiserver
 	bash $(BUILD_DIRS)/master.sh
 
 slave:
-	cat $(BUILD_DIRS)/kubelet /etc/kubernetes/kubelet
+	cat $(BUILD_DIRS)/kubelet > /etc/kubernetes/kubelet
 	bash $(BUILD_DIRS)/slave.sh
 
 clean:
