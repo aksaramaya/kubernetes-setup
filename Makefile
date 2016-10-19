@@ -31,4 +31,4 @@ clean:
 	rm /etc/etcd/etcd.conf
 	rm /etc/kubernetes/apiserver
 	rm /etc/kubernetes/kubelet
-	yum remove -y kubernetes etcd
+	yum remove -y kubernetes etcd docker docker-common docker-selinux
