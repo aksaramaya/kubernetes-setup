@@ -11,8 +11,8 @@ bootstrap:
 	cp /etc/hosts /etc/hosts.backup
 	cat $(BUILD_DIRS)/hosts > /etc/hosts
 	cat $(BUILD_DIRS)/config > /etc/kubernetes/config
-	systemctl disable iptables-services firewalld
-	systemctl stop iptables-services firewalld
+	systemctl disable firewalld
+	systemctl stop firewalld
 
 master:
 	cat $(BUILD_DIRS)/etcd.conf /etc/etcd/etcd.conf
