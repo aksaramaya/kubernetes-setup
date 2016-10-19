@@ -1,10 +1,10 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.7.11 ak-master
-192.168.7.12 ak-node1
-192.168.7.13 ak-node2
-192.168.7.14 ak-node3
-192.168.7.15 ak-node4
-192.168.7.16 ak-node5
-192.168.7.17 ak-node6
-192.168.7.18 ak-node7
+192.168.7.11 ak1
+192.168.7.12 ak2
+192.168.7.13 ak3
+192.168.7.14 ak4
+192.168.7.15 ak5
+192.168.7.16 ak6
+192.168.7.17 ak7
+192.168.7.18 ak8
