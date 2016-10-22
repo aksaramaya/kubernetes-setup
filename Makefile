@@ -22,7 +22,8 @@ master:
 	etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
 
 slave:
-	yum -y install --enablerepo=virt7-docker-common-release flannel
+	#yum -y install --enablerepo=virt7-docker-common-release flannel
+	yum -y install flannel
 	cat $(BUILD_DIRS)/flanneld > /etc/sysconfig/flanneld
 	cat $(BUILD_DIRS)/kubelet > /etc/kubernetes/kubelet
 	bash $(BUILD_DIRS)/slave.sh
