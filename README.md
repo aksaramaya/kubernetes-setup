@@ -36,3 +36,10 @@ $ sudo make master
 ```bash
 $ sudo make slave
 ```
+
+# Kubernetes Vagrant
+```bash
+$ git clone https://github.com/aksaramaya/kubernetes-setup.git
+$ cd kubernetes-setup
+$ vagrant up
+```
