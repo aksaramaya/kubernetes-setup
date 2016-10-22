@@ -6,8 +6,9 @@ all: bootstrap
 
 bootstrap:
 	echo "Setup Repository..."
-	cp $(BUILD_DIRS)/virt7-docker-common-release.repo /etc/yum.repos.d
-	yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd epel-release
+	#cp $(BUILD_DIRS)/virt7-docker-common-release.repo /etc/yum.repos.d
+	#yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd epel-release
+	yum -y install kubernetes etcd epel-release
 	cp /etc/hosts /etc/hosts.backup
 	cat $(BUILD_DIRS)/hosts > /etc/hosts
 	cat $(BUILD_DIRS)/config > /etc/kubernetes/config
