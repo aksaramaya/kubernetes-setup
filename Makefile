@@ -19,8 +19,10 @@ master:
 	cat $(BUILD_DIRS)/etcd.conf > /etc/etcd/etcd.conf
 	cat $(BUILD_DIRS)/apiserver > /etc/kubernetes/apiserver
 	bash $(BUILD_DIRS)/master.sh
-	etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
-
+	#etcdctl mk /atomic.io/network/config '{"Network":"172.17.0.0/16"}'
+	etcdctl mk /atomic.io/network/config "{ \"Network\": \"172.30.0.0/16\", \"SubnetLen\": 24, \"Backend\": { \"Type\": \"vxlan\" } }"
+	yum -y install flannel
+        cat $(BUILD_DIRS)/flanneld > /etc/sysconfig/flanneld
 slave:
 	#yum -y install --enablerepo=virt7-docker-common-release flannel
 	yum -y install flannel
