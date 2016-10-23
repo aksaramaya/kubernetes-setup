@@ -1,0 +1,42 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "maoo",
+    "labels": {
+      "state": "serving"
+    }
+  },
+  "spec": {
+    "replicas": 2,
+    "selector": {
+      "app": "maoo"
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "maoo"
+        }
+      },
+      "spec": {
+        "volumes": null,
+        "containers": [
+          {
+            "name": "maoo",
+            "image": "anak10thn/maoo",
+            "ports": [
+              {
+                "containerPort": 3000,
+                "protocol": "TCP"
+              }
+            ],
+            "imagePullPolicy": "IfNotPresent"
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst"
+      }
+    }
+  }
+}
+

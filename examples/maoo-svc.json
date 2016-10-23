@@ -1,0 +1,21 @@
+{
+	"apiVersion": "v1",
+	"kind": "Service",
+	"metadata": {
+		"name": "maoo"
+	},
+	"spec": {
+		"externalIPs": [
+			"192.168.7.12"
+		],
+		"ports": [
+			{
+				"port": 3000
+			}
+		],
+		"selector": {
+			"app": "maoo"
+		},
+		"type": "LoadBalancer"
+	}
+}
