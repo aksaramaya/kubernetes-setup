@@ -1,6 +1,6 @@
 BUILD_DIRS := build
 
-.PHONY: all clean bootstrap master slave
+.PHONY: all clean bootstrap master slave dns-master dns-slave dns-test
 
 all: bootstrap
 
@@ -27,6 +27,19 @@ slave:
 	cat $(BUILD_DIRS)/flanneld > /etc/sysconfig/flanneld
 	cat $(BUILD_DIRS)/kubelet > /etc/kubernetes/kubelet
 	bash $(BUILD_DIRS)/slave.sh
+
+dns-master:
+	kubectl create -f $(BUILD_DIRS)/skydns/skydns-rc.yaml
+	kubectl	create -f $(BUILD_DIRS)/skydns/skydns-svc.yaml
+	echo "make dns-save, to each minions"
+
+dns-slave:
+	sed -i 's|KUBELET_ARGS=""|KUBELET_ARGS="--cluster-dns=10.254.254.254 --cluster-domain=cluster.local"|g' /etc/kubernetes/kubelet
+	systemctl restart kubelet
+
+dns-test:
+	kubectl create -f $(BUILD_DIRS)/skydns/busybox.yaml
+	echo "RUN : kubectl exec -ti busybox nslookup kubernetes"
 
 clean:
 	rm /etc/yum.repos.d/virt7-docker-common-release.repo
