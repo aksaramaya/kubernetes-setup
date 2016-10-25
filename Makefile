@@ -29,6 +29,7 @@ slave:
 	bash $(BUILD_DIRS)/slave.sh
 
 dns-master:
+	kubectl create namespace kube-system
 	kubectl create -f $(BUILD_DIRS)/skydns/skydns-rc.yaml
 	kubectl	create -f $(BUILD_DIRS)/skydns/skydns-svc.yaml
 	echo "make dns-save, to each minions"
